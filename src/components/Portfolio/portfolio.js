@@ -1,9 +1,7 @@
-import React, { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import Loader from 'react-loaders';
 import AnimatedLetters from '../AnimatedLetters/animatedLetters';
-import { useState } from 'react';
-import portfolioData from "../../data/portfolio.json";
-import { getDocs, collection } from "firebase/firestore";
+import { getDocs, collection } from "firebase/firestore/lite";
 import { db } from "../../firebase"
 import "./portfolio.scss";
 
@@ -21,9 +19,14 @@ const Portfolio = () => {
     }
   });
 
+  useEffect(() => {
+    getPortfolio();
+  }, []);
+
   const getPortfolio = async () => {
     const querySnapshot = await getDocs(collection(db, 'portfolio'));
-    
+    console.log(querySnapshot);
+    setPortfolio(querySnapshot.docs.map((doc) => doc.data()))
   }
 
   const renderPortfolio = (portfolio) => {
@@ -33,9 +36,9 @@ const Portfolio = () => {
           portfolio.map((port, idx) => {
             return (
               <div className='image-box' key={idx}>
-                <img className='portfolio-image' src={port.cover} alt="portfolio" />
+                <img className='portfolio-image' src={port.image} alt="portfolio" />
                 <div className='content'>
-                  <p className='title'>{port.title}</p>
+                  <p className='title'>{port.name}</p>
                   <h4 className='description'>{port.description}</h4>
                   <button className='btn' onClick={() => window.open(port.url)}>View</button>
                 </div>
@@ -58,7 +61,7 @@ const Portfolio = () => {
           />
         </h1>
         <div>
-          {renderPortfolio(portfolioData.portfolio)}
+          {renderPortfolio(portfolio)}
         </div>
       </div>
       <Loader type="pacman" />
