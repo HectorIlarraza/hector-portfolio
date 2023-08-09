@@ -38,9 +38,10 @@
   animation-delay: 1s;
 }
 
-.container.about-page,
 .container.contact-page,
+.container.about-page,
 .container.portfolio-page {
+
   h1 {
     font-size: 53px;
     font-family: "Coolvetica";
@@ -49,11 +50,12 @@
     margin-top: 0;
     position: relative;
     margin-bottom: 40px;
-    left: 10px;
+    left: -10px;
 
     &::before {
       content: "<h1>";
-      font-family: "La Belle Aurore";
+      font-family: "La Belle Aurore", cursive;
+      color: #ff5700;
       font-size: 18px;
       position: absolute;
       margin-top: -10px;
@@ -64,7 +66,8 @@
 
     &::after {
       content: "<h1/>";
-      font-family: "La Belle Aurore";
+      font-family: "La Belle Aurore", cursive;
+      color: #ff5700;
       font-size: 18px;
       line-height: 18px;
       position: absolute;
@@ -82,7 +85,6 @@
     font-weight: 300;
     min-width: fit-content;
     animation: pulse 1s;
-
     &:nth-of-type(1) {
       animation-delay: 1.1s;
     }
@@ -110,6 +112,32 @@
   .text-animate-hover {
     &:hover {
       color: #fff;
+    }
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .page {
+    position: initial;
+  }
+
+  .container {
+    position: initial;
+    height: auto;
+    min-height: auto;
+
+    &.about-page,
+    &.contact-page,
+    &.portfolio-page {
+
+      .text-zone {
+        position: initial;
+        transform: none;
+        width: 100%;
+        display: block;
+        padding: 20px;
+        box-sizing: border-box;
+      }
     }
   }
 }

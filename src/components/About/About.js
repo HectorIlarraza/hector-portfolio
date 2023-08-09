@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
+import Loader from "react-loaders";
 import AnimatedLetters from "../AnimatedLetters/animatedLetters";
-import "./About.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faAngular,
@@ -10,7 +10,7 @@ import {
   faJsSquare,
   faReact,
 } from "@fortawesome/free-brands-svg-icons";
-import Loader from "react-loaders";
+import "./About.scss";
 
 const About = () => {
   const [letterClass, setLetterClass] = useState("text-animate");
@@ -42,7 +42,7 @@ const About = () => {
             pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
             culpa qui officia deserunt mollit anim id est laborum.
           </p>
-          <p>
+          <p align="LEFT">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
             ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
