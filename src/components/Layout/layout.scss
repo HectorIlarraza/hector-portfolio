@@ -10,7 +10,7 @@
 }
 
 .tags {
-  color: #ff5700;
+  color: #99ffff;
   opacity: 0.6;
   position: absolute;
   bottom: 0;
@@ -41,11 +41,10 @@
 .container.contact-page,
 .container.about-page,
 .container.portfolio-page {
-
   h1 {
     font-size: 53px;
     font-family: "Coolvetica";
-    color: #ff5400;
+    color: #99ffff;
     font-weight: 400;
     margin-top: 0;
     position: relative;
@@ -55,7 +54,7 @@
     &::before {
       content: "<h1>";
       font-family: "La Belle Aurore", cursive;
-      color: #ff5700;
+      color: #99ffff;
       font-size: 18px;
       position: absolute;
       margin-top: -10px;
@@ -67,7 +66,7 @@
     &::after {
       content: "<h1/>";
       font-family: "La Belle Aurore", cursive;
-      color: #ff5700;
+      color: #99ffff;
       font-size: 18px;
       line-height: 18px;
       position: absolute;
@@ -107,6 +106,10 @@
     vertical-align: middle;
     display: table-cell;
     max-height: 90%;
+
+    p {
+      font-size: 14px !important;
+    }
   }
 
   .text-animate-hover {
@@ -129,7 +132,6 @@
     &.about-page,
     &.contact-page,
     &.portfolio-page {
-
       .text-zone {
         position: initial;
         transform: none;

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import LogoTitle from "../../assets/images/logoH.png";
+import LogoTitle from "../../assets/images/LogoHv4.png";
 import AnimatedLetters from "../AnimatedLetters/animatedLetters";
 import Logo from "./Logo/logo";
 import "./landingPage.scss";
