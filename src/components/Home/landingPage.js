@@ -3,8 +3,10 @@ import { Link } from "react-router-dom";
 import LogoTitle from "../../assets/images/LogoHv4.png";
 import AnimatedLetters from "../AnimatedLetters/animatedLetters";
 import Logo from "./Logo/logo";
+import { Loader } from "../Loader/loader.js";
 import "./landingPage.scss";
-import Loader from "react-loaders";
+// import Loader from "react-loaders";
+
 
 const LandingPage = () => {
   const [letterClass, setLetterClass] = useState("text-animate");
@@ -63,7 +65,8 @@ const LandingPage = () => {
         </div>
         <Logo />
       </div>
-      <Loader type="pacman" />
+      {/* <Loader type="pacman" /> */}
+      <Loader />
     </>
   );
 };
