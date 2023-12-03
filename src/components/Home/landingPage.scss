@@ -34,7 +34,7 @@
       font-size: 18px;
       position: absolute;
       margin-top: 18px;
-      margin-left: 20px;
+      margin-left: 8px;
       animation: fadeIn 1s 1.7s backwards;
       opacity: 0.6;
     }
@@ -50,11 +50,11 @@
   }
 
   h2 {
-    color: #8d8d8d;
+    color: #ffffff;
     margin-top: 20px;
     font-weight: 400;
     font-size: 11px;
-    font-family: sans-serif;
+    font-family: "Open Sans", sans-serif;
     letter-spacing: 3px;
     animation: fadeIn 1s 1.8s backwards;
   }
@@ -64,7 +64,7 @@
     font-size: 13px;
     font-weight: 400;
     letter-spacing: 4px;
-    font-family: sans-serif;
+    font-family: "Open Sans", sans-serif;
     text-decoration: none;
     padding: 10px 18px;
     border: 1px solid #99ffff;
@@ -80,37 +80,49 @@
   }
 }
 
-@media screen and (max-width: 1200px) {
-  .tags,
-  .home-page h1::before,
-  .home-page h1::after {
-    display: none;
+@media screen and (max-width: 1024px) {
+  .home-page .text-zone,
+  .text-page .text-zone {
+    width: 80%;
+    min-height: 0;
   }
 
-  .home-page .text-zone {
-    position: initial;
-    width: 100%;
-    transform: none;
-    padding: 10px;
-    box-sizing: border-box;
-  }
-
-  .home-page .flat-button {
-    float: none;
-    display: block;
-    margin: 20px auto 0 auto;
-    width: 124px;
+  h1 {
+    font-size: 54px !important;
+    line-height: 45px !important;
   }
 
   .logo-container {
-    position: relative;
-    width: 100px;
-    height: auto;
-    top: 50px;
+    width: 240px;
+    height: 300px;
+    margin-left: 230px;
+    z-index: -1;
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .home-page h1:before {
+    left: 13px;
+  }
+
+  .text-zone {
+    position: static !important;
+    max-height: auto;
+    min-height: 350px;
+    float: left;
+    margin-left: 10%;
+    transform: none !important;
+    margin-top: 170px;
+  }
+
+  .home-page .flat-button {
+    display: none;
+  }
+
+  .logo-container {
     right: 0;
-    box-sizing: border-box;
-    margin: auto;
     left: 0;
+    opacity: 0.5;
   }
 
   .logo-container svg {
@@ -120,5 +132,18 @@
     bottom: auto;
     left: 0;
     margin: auto;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  h1 {
+    font-size: 47px !important;
+    line-height: 40px !important;
+  }
+
+  .logo-container {
+    right: 0;
+    left: 0;
+    opacity: 0.5;
   }
 }

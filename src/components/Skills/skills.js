@@ -1,35 +1,98 @@
 import { useEffect, useState } from "react";
 import Loader from "react-loaders";
 import AnimatedLetters from "../AnimatedLetters/animatedLetters";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faCss3,
-  faGitAlt,
-  faHtml5,
-  faJsSquare,
-  faNode,
-  faReact,
-} from "@fortawesome/free-brands-svg-icons";
-import "./About.scss";
+import TagCloud from "TagCloud";
+import "./skills.scss";
 
-const About = () => {
+const Skills = () => {
   const [letterClass, setLetterClass] = useState("text-animate");
 
+  const pageTitle = [
+    "S",
+    "k",
+    "i",
+    "l",
+    "l",
+    "s",
+    "",
+    "&",
+    "",
+    "E",
+    "x",
+    "p",
+    "e",
+    "r",
+    "i",
+    "e",
+    "n",
+    "c",
+    "e",
+  ];
+
   useEffect(() => {
+    const container = ".tagcloud";
+    const myTags = [
+      "JS",
+      "TS",
+      "React",
+      "Redux",
+      "Node.js",
+      "Express",
+      "HTML",
+      "CSS",
+      "AWS",
+      "Netifly",
+      "MySQL",
+      "PostgreSQL",
+      "Heroku",
+      "Firebase",
+      "MongoDB",
+      "Jest",
+      "AWS EC2/RDS/S3",
+      "Babel",
+      "Agile",
+      "Scrum",
+      "Jira",
+      "Confluence",
+      "Figma",
+      "Material-UI",
+      "Reactstrap",
+      "Font Awesome",
+      "Bootstrap",
+      "Git",
+      "NPM",
+      "Figma",
+    ];
+
+    const options = {
+      radius: 180,
+      maxSpeed: "fast",
+      initSpeed: "fast",
+      direction: 135,
+      keep: true,
+      useContainerInlineStyles: true,
+      useItemInlineStyles: true,
+      containerClass: "tagcloud",
+      itemClass: "tagcloud--item",
+    };
+
     const timer = setTimeout(() => {
       setLetterClass("text-animate-hover");
     }, 3000);
-    return () => clearTimeout(timer);
+    return () => {
+      clearTimeout(timer);
+      TagCloud(container, myTags, options);
+    };
   }, []);
 
   return (
     <>
-      <div className="container about-page">
+      <div className="container skills-page">
         <div className="text-zone">
           <h1>
             <AnimatedLetters
               letterClass={letterClass}
-              strArr={["A", "b", "o", "u", "t", "", "m", "e"]}
+              strArr={pageTitle}
               idx={15}
             />
           </h1>
@@ -53,29 +116,14 @@ const About = () => {
             eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </p>
         </div>
-
-        <div className="stage-cube-cont">
+        <div className="clear"></div>
+        <div className="skills-charts">
           <div id="stars"></div>
           <div id="stars2"></div>
           <div id="stars3"></div>
-          <div className="cubespinner">
-            <div className="face1">
-              <FontAwesomeIcon icon={faReact} />
-            </div>
-            <div className="face2">
-              <FontAwesomeIcon icon={faHtml5} />
-            </div>
-            <div className="face3">
-              <FontAwesomeIcon icon={faCss3} />
-            </div>
-            <div className="face4">
-              <FontAwesomeIcon icon={faNode} />
-            </div>
-            <div className="face5">
-              <FontAwesomeIcon icon={faJsSquare} />
-            </div>
-            <div className="face6">
-              <FontAwesomeIcon icon={faGitAlt} />
+          <div className="myCanvasContianer">
+            <div id="myCanvas" width={500} height={500}>
+              <span className="tagcloud"></span>
             </div>
           </div>
         </div>
@@ -85,4 +133,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default Skills;

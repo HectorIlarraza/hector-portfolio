@@ -14,9 +14,9 @@
   opacity: 0.6;
   position: absolute;
   bottom: 0;
-  left: 120px;
+  left: 80px;
   font-size: 18px;
-  font-family: "La Belle Aurore";
+  font-family: "La Belle Aurore", cursive;
 }
 
 .bottom-tag-html {
@@ -40,6 +40,7 @@
 
 .container.contact-page,
 .container.about-page,
+.container.skills-page,
 .container.portfolio-page {
   h1 {
     font-size: 53px;
@@ -48,8 +49,8 @@
     font-weight: 400;
     margin-top: 0;
     position: relative;
-    margin-bottom: 40px;
-    left: -10px;
+    margin-bottom: 50px;
+    left: 10px;
 
     &::before {
       content: "<h1>";
@@ -80,7 +81,7 @@
   p {
     font-style: 13px;
     color: #fff;
-    font-family: sans-serif;
+    font-family: "Open Sans", sans-serif;
     font-weight: 300;
     min-width: fit-content;
     animation: pulse 1s;
@@ -119,27 +120,110 @@
   }
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1024px) {
+  .textzone h1:before,
+  .container.about-page .text-zone h1:before,
+  .container.skills-page .text-zone h1:before,
+  .container.contact-page .text-zone h1:before {
+    margin-top: -29px;
+  }
+
+  .textzone h1:after,
+  .container.about-page .text-zone h1:after,
+  .container.skills-page .text-zone h1:after,
+  .container.contact-page .text-zone h1:after {
+    bottom: -40px;
+  }
+
+  .container.about-page .text-zone {
+    width: 40%;
+  }
+
+  .container.contact-page .text-zone {
+    width: 36%;
+  }
+
+  .container.skills-page .text-zone {
+    width: 40%;
+  }
+
+  h1 {
+    font-size: 54px !important;
+    line-height: 45px;
+  }
+}
+
+@media screen and (max-width: 960px) {
   .page {
-    position: initial;
+    height: auto;
+    position: relative;
+  }
+
+  .tags {
+    margin-left: 10px;
+    left: 0;
+  }
+
+  .top-tags {
+    bottom: auto;
+    top: 76px;
+  }
+
+  .bottom-tags {
+    position: absolute;
+    clear: both;
+    float: left;
+    margin-top: 22px;
+    bottom: 0;
+  }
+
+  .bottom-tag-html {
+    margin-left: 0;
   }
 
   .container {
-    position: initial;
+    width: 100%;
     height: auto;
-    min-height: auto;
+    padding-bottom: 58px;
+    box-sizing: border-box;
+    position: relative;
+    top: 0;
+    overflow: hidden;
 
     &.about-page,
     &.contact-page,
+    &.skills-page,
     &.portfolio-page {
       .text-zone {
-        position: initial;
-        transform: none;
         width: 100%;
         display: block;
-        padding: 20px;
         box-sizing: border-box;
       }
     }
+  }
+
+  .container.contact-page .text-zone {
+    width: 80%;
+  }
+
+  .container.about-page .text-zone,
+  .container.skills-page .text-zone {
+    width: 80%;
+    min-height: 0;
+  }
+
+  .container.portfolio-page h1::before {
+    margin-top: -20px;
+  }
+
+  .container.portfolio-page h1::after {
+    bottom: -30px;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  h1 {
+    font-size: 47px !important;
+    line-height: 40px !important;
   }
 }

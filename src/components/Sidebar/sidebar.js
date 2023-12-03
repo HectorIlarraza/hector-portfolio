@@ -10,6 +10,7 @@ import {
   faHome,
   faSuitcase,
   faUser,
+  faScrewdriverWrench,
 } from "@fortawesome/free-solid-svg-icons";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { useState } from "react";
@@ -18,9 +19,9 @@ const Sidebar = () => {
   const [showNav, setShowNav] = useState(false);
 
   return (
-    <div className="nav-bar">
-      <Link className="logo" to="/">
-        <img src={LogoH} alt="Logo" />
+    <div className="nav-bar" id="nav_bar">
+      <Link className="logo" rel="index" to="/">
+        <img src={LogoH} alt="Logo" rel="index" />
         <img className="sub-logo" src={LogoSubtitle} alt="hector" />
       </Link>
       <nav className={showNav ? "mobile-show" : ""}>
@@ -39,6 +40,14 @@ const Sidebar = () => {
           to="/about"
         >
           <FontAwesomeIcon icon={faUser} color="#4d4d4e" />
+        </NavLink>
+        <NavLink
+          onClick={() => setShowNav(false)}
+          exact="true"
+          className="skills-link"
+          to="/skills"
+        >
+          <FontAwesomeIcon icon={faScrewdriverWrench} color="#4d4d4e" />
         </NavLink>
         <NavLink
           onClick={() => setShowNav(false)}

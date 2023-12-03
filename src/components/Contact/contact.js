@@ -49,6 +49,7 @@ const Contact = () => {
             ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
             aliquip ex ea commodo consequat.
           </p>
+          <p>&nbsp;</p>
           <div className="contact-form">
             <form ref={refForm} onSubmit={sendEmail}>
               <ul>
@@ -86,19 +87,19 @@ const Contact = () => {
           </div>
         </div>
         <div className="info-map">
-          Hector Ilarraza
+          Hector Ilarraza,
           <br />
-          New York City
+          New York City,
           <br />
           Queens
           <br />
           <span>freelancersilarraza@gmail.com</span>
         </div>
         <div className="map-wrap">
-          <MapContainer center={[44.96366, 19.61045]} zoom={13}>
+          <MapContainer center={[40.792, -73.809]} zoom={13}>
             <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-            <Marker position={[44.96366, 19.61045]}>
-              <Popup>Sloba lives here, come over for a cup of coffee :)</Popup>
+            <Marker position={[40.792, -73.809]}>
+              <Popup>Hector lives here, come over for a cup of coffee :)</Popup>
             </Marker>
           </MapContainer>
         </div>

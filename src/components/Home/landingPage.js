@@ -7,10 +7,9 @@ import { Loader } from "../Loader/loader.js";
 import "./landingPage.scss";
 // import Loader from "react-loaders";
 
-
 const LandingPage = () => {
   const [letterClass, setLetterClass] = useState("text-animate");
-  const nameArr = ["e", "c", "t", "o", "r"];
+  const nameArr = ["e", "c", "t", "o", "r", ","];
   const jobArr = [
     "w",
     "e",
@@ -37,7 +36,10 @@ const LandingPage = () => {
 
   return (
     <>
-      <div className="container home-page">
+      <div
+        className="container home-page"
+        style={{ opacity: "1", transform: "matrix(1,0,0,1,0,0)" }}
+      >
         <div className="text-zone">
           <h1>
             <span className={letterClass}>H</span>
@@ -58,15 +60,15 @@ const LandingPage = () => {
               idx={20}
             />
           </h1>
-          <h2>Full-Stack Developer / Javascript Practitioner</h2>
+          <h2>Full-Stack Developer / Javascript Practitioner / Freelancer</h2>
           <Link to="/contact" className="flat-button">
             CONTACT ME
           </Link>
         </div>
         <Logo />
       </div>
-      {/* <Loader type="pacman" /> */}
-      <Loader />
+      <Loader type="pacman" />
+      {/* <Loader /> */}
     </>
   );
 };
