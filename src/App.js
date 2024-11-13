@@ -1,11 +1,11 @@
 import { Routes, Route } from "react-router-dom";
-import Layout from "./components/Layout/layout";
-import LandingPage from "./components/Home/landingPage";
-import About from "./components/About/About";
-import Contact from "./components/Contact/contact";
-import Skills from "./components/Skills/skills";
-import Portfolio from "./components/Portfolio/portfolio";
-import Dashboard from "./components/Dashboard/dashboard";
+import { Layout } from "./components/Layout/layout";
+import { LandingPage } from "./components/Home/landingPage";
+import { About } from "./components/About/About";
+import { Contact } from "./components/Contact/contact";
+import { Skills } from "./components/Skills/skills";
+import { Portfolio } from "./components/Portfolio/portfolio";
+import { Dashboard } from "./components/Dashboard/dashboard";
 import "./App.scss";
 
 function App() {

@@ -2,11 +2,13 @@ import { useEffect, useState } from "react";
 import Loader from "react-loaders";
 import AnimatedLetters from "../AnimatedLetters/animatedLetters";
 import TagCloud from "TagCloud";
+import { useColor } from "../../context/ColorContext";
 import "./skills.scss";
 
-const Skills = () => {
+export const Skills = () => {
   const [letterClass, setLetterClass] = useState("text-animate");
-
+  const [radius, setRadius] = useState(300);
+  const { colorFilter, changeColor } = useColor();
   const pageTitle = [
     "S",
     "k",
@@ -48,7 +50,7 @@ const Skills = () => {
       "Firebase",
       "MongoDB",
       "Jest",
-      "AWS EC2/RDS/S3",
+      "AWS \n EC2/RDS/S3",
       "Babel",
       "Agile",
       "Scrum",
@@ -64,8 +66,17 @@ const Skills = () => {
       "Figma",
     ];
 
+    const handleResize = () => {
+      const screenWidth = window.innerWidth;
+      setRadius(screenWidth <= 960 ? 150 : 300);
+    };
+
+    handleResize();
+
+    window.addEventListener("resize", handleResize);
+
     const options = {
-      radius: 180,
+      radius: radius,
       maxSpeed: "fast",
       initSpeed: "fast",
       direction: 135,
@@ -79,17 +90,24 @@ const Skills = () => {
     const timer = setTimeout(() => {
       setLetterClass("text-animate-hover");
     }, 3000);
+
+    let tagCloud = TagCloud(container, myTags, options);
+
     return () => {
       clearTimeout(timer);
-      TagCloud(container, myTags, options);
+      window.removeEventListener("resize", handleResize);
+
+      if (tagCloud) {
+        tagCloud.destroy();
+      }
     };
-  }, []);
+  }, [radius]);
 
   return (
     <>
       <div className="container skills-page">
         <div className="text-zone">
-          <h1>
+          <h1 style={{ filter: colorFilter }}>
             <AnimatedLetters
               letterClass={letterClass}
               strArr={pageTitle}
@@ -128,9 +146,7 @@ const Skills = () => {
           </div>
         </div>
       </div>
-      <Loader type="pacman" />
+      <Loader type="pacman" style={{ filter: colorFilter }} />
     </>
   );
 };
-
-export default Skills;

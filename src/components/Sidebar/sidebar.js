@@ -1,7 +1,6 @@
 import { Link, NavLink } from "react-router-dom";
 import "./sidebar.scss";
 import LogoH from "../../assets/images/LogoHv4.png";
-import LogoSubtitle from "../../assets/images/logoipsum-261.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faBars,
@@ -14,15 +13,23 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { useState } from "react";
+import { useColor } from "../../context/ColorContext";
+
+//TODO: Alter width size of navbar and look into new design for it
 
 const Sidebar = () => {
   const [showNav, setShowNav] = useState(false);
+  const { colorFilter, changeColor } = useColor();
 
   return (
     <div className="nav-bar" id="nav_bar">
       <Link className="logo" rel="index" to="/">
-        <img src={LogoH} alt="Logo" rel="index" />
-        <img className="sub-logo" src={LogoSubtitle} alt="hector" />
+        <img
+          src={LogoH}
+          alt="Logo"
+          rel="index"
+          style={{ filter: colorFilter }}
+        />
       </Link>
       <nav className={showNav ? "mobile-show" : ""}>
         <NavLink
@@ -30,6 +37,7 @@ const Sidebar = () => {
           exact="true"
           activeclassname="active"
           to="/"
+          style={{ filter: colorFilter }}
         >
           <FontAwesomeIcon icon={faHome} color="#4d4d4e" />
         </NavLink>
@@ -38,6 +46,7 @@ const Sidebar = () => {
           exact="true"
           className="about-link"
           to="/about"
+          style={{ filter: colorFilter }}
         >
           <FontAwesomeIcon icon={faUser} color="#4d4d4e" />
         </NavLink>
@@ -46,6 +55,7 @@ const Sidebar = () => {
           exact="true"
           className="skills-link"
           to="/skills"
+          style={{ filter: colorFilter }}
         >
           <FontAwesomeIcon icon={faScrewdriverWrench} color="#4d4d4e" />
         </NavLink>
@@ -54,6 +64,7 @@ const Sidebar = () => {
           exact="true"
           className="portfolio-link"
           to="/portfolio"
+          style={{ filter: colorFilter }}
         >
           <FontAwesomeIcon icon={faSuitcase} color="#4d4d4e" />
         </NavLink>
@@ -62,6 +73,7 @@ const Sidebar = () => {
           exact="true"
           className="contact-link"
           to="/contact"
+          style={{ filter: colorFilter }}
         >
           <FontAwesomeIcon icon={faEnvelope} color="#4d4d4e" />
         </NavLink>
@@ -71,6 +83,7 @@ const Sidebar = () => {
           color="#99ffff"
           size="3x"
           className="close-icon"
+          style={{ filter: colorFilter }}
         />
       </nav>
       <ul>
@@ -87,7 +100,7 @@ const Sidebar = () => {
           <a
             target="_blank"
             rel="noreferrer"
-            href="https://www.linkedin.com/in/hectorilarraza/"
+            href="https://github.com/HectorIlarraza"
           >
             <FontAwesomeIcon icon={faGithub} color="#4d4d4e" />
           </a>

@@ -83,6 +83,12 @@
       }
     }
 
+    a.skills-link {
+      &:after {
+        content: "SKILLS";
+      }
+    }
+
     a.contact-link {
       &:after {
         content: "CONTACT";
@@ -144,23 +150,58 @@
   }
 
   #nav_bar nav {
-    width: 42%;
+    display: flex;
+    width: 65%;
     position: absolute;
-    left: 50%;
-    margin-left: -19%;
+    left: 44%;
+    margin-left: -31%;
     float: left;
     overflow: hidden;
     text-align: center;
-    height: 60px;
-    top: 0;
+    height: 50px;
+    top: 2px;
     margin-top: 0;
+    flex-direction: row;
+    justify-content: space-between;
+
+    a {
+      &:first-child {
+        &::after {
+          content: "HME";
+        }
+      }
+
+      &.about-link {
+        &:after {
+          content: "ABT";
+        }
+      }
+
+      &.skills-link {
+        &:after {
+          content: "SKL";
+        }
+      }
+
+      &.contact-link {
+        &:after {
+          content: "CNT";
+        }
+      }
+
+      &.portfolio-link {
+        &:after {
+          content: "PRF";
+        }
+      }
+    }
   }
 
   #nav_bar nav a {
     float: left;
-    margin-left: 14%;
+    margin-left: 10%;
     height: 60px;
-    line-height: 7px;
+    line-height: 7vh;
   }
 
   #nav_bar nav a:first-child {
@@ -201,12 +242,8 @@
 
   .logo > img:first-child {
     height: 30px;
-  }
-
-  .logo img {
     display: block;
-    margin: 5px 15px 5px 19px;
+    margin: 13px auto auto 6px;
     width: auto;
-    height: auto;
   }
 }

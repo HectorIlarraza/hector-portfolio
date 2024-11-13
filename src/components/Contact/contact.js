@@ -3,11 +3,15 @@ import Loader from "react-loaders";
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import AnimatedLetters from "../AnimatedLetters/animatedLetters";
 import emailjs from "@emailjs/browser";
+import { useColor } from "../../context/ColorContext";
 import "./contact.scss";
 
-const Contact = () => {
+//TODO: Replace maps componet with something else, maybe an animation
+
+export const Contact = () => {
   const [letterClass, setLetterClass] = useState("text-animate");
   const refForm = useRef();
+  const { colorFilter, colorChange } = useColor();
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -36,7 +40,7 @@ const Contact = () => {
     <>
       <div className="container contact-page">
         <div className="text-zone">
-          <h1>
+          <h1 style={{ filter: colorFilter }}>
             <AnimatedLetters
               letterClass={letterClass}
               strArr={["C", "o", "n", "t", "a", "c", "t", " ", "m", "e"]}
@@ -104,9 +108,7 @@ const Contact = () => {
           </MapContainer>
         </div>
       </div>
-      <Loader type="pacman" />
+      <Loader type="pacman" style={{ filter: colorFilter }} />
     </>
   );
 };
-
-export default Contact;

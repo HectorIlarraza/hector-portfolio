@@ -40,6 +40,8 @@
     }
 
     img {
+      top: 2px;
+      position: relative;
       width: 32px;
       margin-left: 20px;
       opacity: 0;
@@ -93,16 +95,36 @@
   }
 
   .logo-container {
-    width: 240px;
-    height: 300px;
-    margin-left: 230px;
-    z-index: -1;
+    height: 50%;
+    margin: auto 0 auto 50%;
+    overflow: hidden;
+    position: relative;
+    width: 51%;
+    z-index: 0;
+
+    .solid-logo {
+      height: 15vh;
+      position: absolute;
+      width: auto;
+      transition: filter 0.3s ease;
+      transform: rotate(15deg);
+    }
   }
 }
 
 @media screen and (max-width: 960px) {
   .home-page h1:before {
     left: 13px;
+  }
+
+  h2 {
+    color: #ffffff;
+    margin-top: 15px;
+    font-weight: 400;
+    font-size: 11px;
+    font-family: "Open Sans", sans-serif;
+    letter-spacing: 3px;
+    animation: fadeIn 1s 1.8s backwards;
   }
 
   .text-zone {
@@ -120,24 +142,26 @@
   }
 
   .logo-container {
-    right: 0;
-    left: 0;
-    opacity: 0.5;
-  }
+    height: 59%;
+    margin: auto 0;
+    overflow: hidden;
+    position: relative;
+    width: 104%;
+    z-index: 0;
 
-  .logo-container svg {
-    position: absolute;
-    top: auto;
-    right: auto;
-    bottom: auto;
-    left: 0;
-    margin: auto;
+    .solid-logo {
+      height: 15vh;
+      position: absolute;
+      width: auto;
+      transition: filter 0.3s ease;
+      transform: rotate(15deg);
+    }
   }
 }
 
 @media screen and (max-width: 750px) {
   h1 {
-    font-size: 47px !important;
+    font-size: 42px !important;
     line-height: 40px !important;
   }
 

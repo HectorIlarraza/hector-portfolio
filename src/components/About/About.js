@@ -10,10 +10,14 @@ import {
   faNode,
   faReact,
 } from "@fortawesome/free-brands-svg-icons";
+import { useColor } from "../../context/ColorContext";
 import "./About.scss";
 
-const About = () => {
+//TODO: add movement for the Cube n increase its size a few, also zoom in effect
+
+export const About = () => {
   const [letterClass, setLetterClass] = useState("text-animate");
+  const { colorFilter, changeColor } = useColor();
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -26,7 +30,7 @@ const About = () => {
     <>
       <div className="container about-page">
         <div className="text-zone">
-          <h1>
+          <h1 style={{ filter: colorFilter }}>
             <AnimatedLetters
               letterClass={letterClass}
               strArr={["A", "b", "o", "u", "t", "", "m", "e"]}
@@ -80,9 +84,7 @@ const About = () => {
           </div>
         </div>
       </div>
-      <Loader type="pacman" />
+      <Loader type="pacman" style={{ filter: colorFilter }} />
     </>
   );
 };
-
-export default About;
