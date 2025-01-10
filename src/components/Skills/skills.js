@@ -4,6 +4,15 @@ import AnimatedLetters from "../AnimatedLetters/animatedLetters";
 import TagCloud from "TagCloud";
 import { useColor } from "../../context/ColorContext";
 import "./skills.scss";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faChartLine,
+  faClock,
+  faRocket,
+  faUsers,
+  faCode,
+  faServer,
+} from "@fortawesome/free-solid-svg-icons";
 
 export const Skills = () => {
   const [letterClass, setLetterClass] = useState("text-animate");
@@ -29,6 +38,51 @@ export const Skills = () => {
     "n",
     "c",
     "e",
+  ];
+  const [isLoading, setIsLoading] = useState(true);
+
+  const technicalSkills = [
+    {
+      name: "React/Redux",
+      level: 90,
+      highlight:
+        "Optimized Redux state management at Collabify.ai, boosting site performance by 30%",
+      icon: faCode,
+    },
+    {
+      name: "TypeScript/JavaScript",
+      level: 85,
+      highlight:
+        "Implemented responsive, accessible web pages improving user satisfaction by 15%",
+      icon: faRocket,
+    },
+    {
+      name: "Node.js/Express",
+      level: 80,
+      highlight:
+        "Built scalable backend services supporting 1000+ concurrent users",
+      icon: faServer,
+    },
+    {
+      name: "HTML/CSS",
+      level: 90,
+      highlight:
+        "Designed reusable email templates, cutting development time by 25%",
+      icon: faClock,
+    },
+    {
+      name: "PostgreSQL/MongoDB",
+      level: 75,
+      highlight: "Optimized database queries reducing response time by 40%",
+      icon: faChartLine,
+    },
+    {
+      name: "AWS/Cloud Services",
+      level: 70,
+      highlight:
+        "Deployed and maintained cloud infrastructure for enterprise applications",
+      icon: faUsers,
+    },
   ];
 
   useEffect(() => {
@@ -93,6 +147,10 @@ export const Skills = () => {
 
     let tagCloud = TagCloud(container, myTags, options);
 
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 500);
+
     return () => {
       clearTimeout(timer);
       window.removeEventListener("resize", handleResize);
@@ -114,25 +172,37 @@ export const Skills = () => {
               idx={15}
             />
           </h1>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
-          </p>
-          <p align="LEFT">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </p>
+          <div className="skills-bars">
+            {technicalSkills.map((skill, index) => (
+              <div className="skill-bar" key={index}>
+                <div className="skill-info">
+                  <span className="skill-name">
+                    <FontAwesomeIcon
+                      icon={skill.icon}
+                      className="skill-icon"
+                      style={{ filter: colorFilter }}
+                    />
+                    {skill.name}
+                  </span>
+                  <span className="skill-percentage">{skill.level}%</span>
+                </div>
+                <div className="skill-progress">
+                  <div
+                    className={`skill-progress-bar ${
+                      !isLoading ? "loaded" : ""
+                    }`}
+                    style={{
+                      width: isLoading ? "0%" : `${skill.level}%`,
+                      filter: colorFilter,
+                    }}
+                  ></div>
+                </div>
+                <div className="skill-highlight">
+                  <p>{skill.highlight}</p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
         <div className="clear"></div>
         <div className="skills-charts">

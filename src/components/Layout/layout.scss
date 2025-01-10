@@ -14,17 +14,17 @@
   opacity: 0.6;
   position: absolute;
   bottom: 0;
-  left: 80px;
+  left: 95px;
   font-size: 18px;
   font-family: "La Belle Aurore", cursive;
 }
 
 .top-tag-html {
-  margin-left: -20px;
+  margin-left: -10px;
 }
 
 .bottom-tag-html {
-  margin-left: -20px;
+  margin-left: -10px;
 }
 
 .container {
@@ -54,7 +54,7 @@
     margin-top: 0;
     position: relative;
     margin-bottom: 50px;
-    left: 10px;
+    left: 8px;
 
     &::before {
       content: "<h1>";
@@ -105,22 +105,37 @@
   .text-zone {
     position: absolute;
     left: 10%;
-    top: 50%;
+    top: 54%;
     transform: translateY(-50%);
     width: 35%;
     vertical-align: middle;
     display: table-cell;
     max-height: 90%;
-
-    p {
-      font-size: 14px !important;
-    }
   }
 
   .text-animate-hover {
     &:hover {
       color: #fff;
     }
+  }
+}
+
+.container.about-page,
+.container.skills-page,
+.container.contact-page .text-zone p {
+  font-size: 15.5px;
+  text-align: left;
+}
+
+.container.skills-page .text-zone {
+  top: 51%;
+}
+
+.container.contact-page .text-zone {
+  top: 56% !important;
+
+  p {
+    margin: 0;
   }
 }
 

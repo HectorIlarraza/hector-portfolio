@@ -14,11 +14,11 @@ export const Layout = () => {
             &lt;html&gt;
           </span>
           <br />
-          &nbsp;&nbsp;&lt;body&gt;
+          &nbsp;&nbsp;&nbsp;&lt;body&gt;
         </span>
         <Outlet />
         <span className="tags bottom-tags" style={{ filter: colorFilter }}>
-          &nbsp;&nbsp;&nbsp;&lt;/body&gt;
+          &nbsp;&nbsp;&nbsp;&nbsp;&lt;/body&gt;
           <br />
           <span className="bottom-tag-html" style={{ filter: colorFilter }}>
             &lt;/html&gt;

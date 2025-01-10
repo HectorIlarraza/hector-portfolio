@@ -13,7 +13,7 @@ import {
 import { useColor } from "../../context/ColorContext";
 import "./About.scss";
 
-//TODO: add movement for the Cube n increase its size a few, also zoom in effect
+//TODO: add movement for the Cube n increase its size a few, also zoom in effect - Ver 2.0 feature
 
 export const About = () => {
   const [letterClass, setLetterClass] = useState("text-animate");
@@ -38,23 +38,32 @@ export const About = () => {
             />
           </h1>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
+            Hi, I’m Hector Ilarraza, a full-stack software engineer with a
+            passion for creating user-focused solutions that make a meaningful
+            difference. My journey began in desktop support at companies like
+            Credit Suisse and AllianceBernstein, where I developed a knack for
+            solving complex technical problems. But my curiosity for building
+            impactful applications led me to pursue a deeper understanding of
+            software development.
           </p>
           <p align="LEFT">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.
+            Today, I’m dedicated to crafting scalable, accessible applications
+            that solve real-world problems. At Collabify.ai, I’ve honed my
+            skills by leading initiatives to improve user experiences,
+            streamline processes, and enhance performance. Beyond my
+            professional work, I’m deeply fascinated by the intersection of
+            AI/ML and music technology and how it can redefine how we create and
+            experience art.
           </p>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Beyond coding, I’m deeply passionate about music and exploring how
+            AI/ML can revolutionize creative industries. My personal projects
+            often intersect these interests, reflecting my love for innovation
+            and problem-solving.
+          </p>
+          <p>
+            Let’s connect to discuss how we can create remarkable solutions
+            together!
           </p>
         </div>
 

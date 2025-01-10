@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
+import GifFile from "../../assets/images/tenor.gif";
 import Loader from "react-loaders";
-import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import AnimatedLetters from "../AnimatedLetters/animatedLetters";
 import emailjs from "@emailjs/browser";
 import { useColor } from "../../context/ColorContext";
@@ -48,10 +48,9 @@ export const Contact = () => {
             />
           </h1>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.
+            Let’s connect! Whether you’re looking to collaborate on a project,
+            discuss exciting opportunities, or just share ideas, I’d love to
+            hear from you.
           </p>
           <p>&nbsp;</p>
           <div className="contact-form">
@@ -90,22 +89,14 @@ export const Contact = () => {
             </form>
           </div>
         </div>
-        <div className="info-map">
-          Hector Ilarraza,
-          <br />
-          New York City,
-          <br />
-          Queens
-          <br />
-          <span>freelancersilarraza@gmail.com</span>
-        </div>
         <div className="map-wrap">
-          <MapContainer center={[40.792, -73.809]} zoom={13}>
-            <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-            <Marker position={[40.792, -73.809]}>
-              <Popup>Hector lives here, come over for a cup of coffee :)</Popup>
-            </Marker>
-          </MapContainer>
+          <div className="gif-container">
+            <img
+              src={GifFile}
+              alt="Location Animation"
+              className="location-gif"
+            />
+          </div>
         </div>
       </div>
       <Loader type="pacman" style={{ filter: colorFilter }} />

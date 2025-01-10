@@ -12,51 +12,47 @@ const Home = () => {
     const name = form.current[0]?.value;
     const description = form.current[1]?.value;
     const url = form.current[2]?.value;
-    const image = form.current[3]?.files[0];
+    const thumbnail = form.current[3]?.files[0];
+    const gif = form.current[4]?.files[0];
 
-    const storageRef = ref(storage, `portfolio/${image.name}`);
+    const thumbnailRef = ref(storage, `portfolio/thumbnails/${thumbnail.name}`);
+    const gifRef = ref(storage, `portfolio/gifs/${gif.name}`);
 
-    uploadBytes(storageRef, image).then(
-      (snapshot) => {
-        getDownloadURL(snapshot.ref).then(
-          (downloadUrl) => {
-            savePortofolio({
-              name,
-              description,
-              url,
-              image: downloadUrl,
+    uploadBytes(thumbnailRef, thumbnail).then((thumbnailSnapshot) => {
+      getDownloadURL(thumbnailSnapshot.ref).then((thumbnailUrl) => {
+        uploadBytes(gifRef, gif).then((gifSnapshot) => {
+          getDownloadURL(gifSnapshot.ref)
+            .then((gifUrl) => {
+              savePortofolio({
+                name,
+                description,
+                url,
+                thumbnail: thumbnailUrl,
+                gif: gifUrl,
+              });
+            })
+            .catch((error) => {
+              console.log(error);
+              savePortofolio({
+                name,
+                description,
+                url,
+                thumbnail: thumbnailUrl,
+                gif: null,
+              });
             });
-          },
-          (error) => {
-            console.log(error);
-            savePortofolio({
-              name,
-              description,
-              url,
-              image: null,
-            });
-          }
-        );
-      },
-      (error) => {
-        console.log(error);
-        savePortofolio({
-          name,
-          description,
-          url,
-          image: null,
         });
-      }
-    );
+      });
+    });
   };
 
   const savePortofolio = async (portfolio) => {
     console.log(portfolio);
     try {
-      await addDoc(collection(db, 'portfolio'), portfolio);
+      await addDoc(collection(db, "portfolio"), portfolio);
       window.location.reload(false);
     } catch (error) {
-      alert('Failed to add portfolio')
+      alert("Failed to add portfolio");
     }
   };
 
@@ -72,8 +68,13 @@ const Home = () => {
         <p>
           <input type="text" placeholder="Url" />
         </p>
-        <p>
-          <input type="file" placeholder="Image" />
+        <p style={{ color: "white" }}>
+          Thumbnail Image (static)
+          <input type="file" accept="image/*" placeholder="Thumbnail" />
+        </p>
+        <p style={{ color: "white" }}>
+          GIF Animation
+          <input type="file" accept=".gif" placeholder="GIF" />
         </p>
         <button type="submit">Submit</button>
         <button onClick={() => auth.signOut()}>Sign out</button>

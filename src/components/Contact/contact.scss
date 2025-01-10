@@ -74,20 +74,24 @@
 }
 
 .map-wrap {
-  background: rgba(8, 253, 216, 0.1);
   float: right;
   width: 53%;
   height: 115%;
   margin-top: -3%;
-}
 
-.leaflet-container {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  opacity: 1;
-  animation: backInRight 1s 1.2s;
-  animation-fill-mode: forwards;
+  .gif-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .location-gif {
+      width: 100%;
+      height: 65%;
+      object-fit: fill;
+    }
+  }
 }
 
 .info-map {

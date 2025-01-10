@@ -15,7 +15,7 @@ import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { useState } from "react";
 import { useColor } from "../../context/ColorContext";
 
-//TODO: Alter width size of navbar and look into new design for it
+//TODO: Alter width size of navbar and look into new design for it - Ver 2.0 feature
 
 const Sidebar = () => {
   const [showNav, setShowNav] = useState(false);

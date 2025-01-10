@@ -6,8 +6,8 @@ import { db } from "../../firebase";
 import { useColor } from "../../context/ColorContext";
 import "./portfolio.scss";
 
-//TODO: change the cards to have gif animation of the projects you created
-//TODO: look into interactive animation for the cards as well
+//TODO: change the cards to have gif animation of the projects you created - Ver 2.0 feature
+//TODO: look into interactive animation for the cards as well - Ver 2.0 feature
 
 export const Portfolio = () => {
   const [letterClass, setLetterClass] = useState("text-animate");
@@ -47,18 +47,23 @@ export const Portfolio = () => {
       <div className="images-container">
         {portfolio.map((port, idx) => {
           return (
-            <div className="image-box" key={idx}>
-              <img
-                className="portfolio-image"
-                src={port.image}
-                alt="portfolio"
-              />
+            <div
+              className="image-box"
+              key={idx}
+              onClick={() => window.open(port.url)}
+              onMouseEnter={(e) =>
+                (e.currentTarget.querySelector("img").src = port.gif)
+              }
+              onMouseLeave={(e) =>
+                (e.currentTarget.querySelector("img").src = port.thumbnail)
+              }
+            >
+              <div className="portfolio-gif">
+                <img src={port.thumbnail} alt={port.name} title={port.name} />
+              </div>
               <div className="content">
                 <p className="title">{port.name}</p>
                 <h4 className="description">{port.description}</h4>
-                <button className="btn" onClick={() => window.open(port.url)}>
-                  View
-                </button>
               </div>
             </div>
           );

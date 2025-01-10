@@ -8,7 +8,7 @@
 
   h1.page-title {
     margin-left: 50px;
-    margin-top: 100px;
+    margin-top: 130px;
   }
 
   .images-container {
@@ -21,92 +21,115 @@
   .image-box {
     position: relative;
     flex: 1 1 20%;
-    height: 400px;
+    height: 350px;
     overflow: hidden;
-    border-radius: 10px;
-    max-width: calc(25% - 10px);
+    border-radius: 20px;
+    max-width: calc(33% - 10px);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: rgba(15, 15, 15, 0.85);
+    backdrop-filter: blur(5px);
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(153, 255, 255, 0.05);
 
-    .portfolio-image {
-      position: absolute;
-      z-index: 2;
+    .portfolio-gif {
       width: 100%;
-      height: 100%;
-      object-fit: cover;
+      height: 250px;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid rgba(153, 255, 255, 0.05);
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: all 0.3s ease;
+        transform-origin: center;
+        filter: brightness(0.9);
+      }
     }
 
     .content {
-      position: absolute;
-      width: 100%;
-      z-index: 3;
-      padding: 10px 20px;
-      transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+      padding: 12px 15px;
       background: linear-gradient(
-        180deg,
-        rgba(0, 0, 0, 0.2) 0,
-        rgba(0, 0, 0, 1)
+        to bottom,
+        rgba(0, 0, 0, 0.85),
+        rgba(0, 0, 0, 0.95)
       );
-      bottom: -70px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      gap: 8px;
+      backdrop-filter: blur(3px);
+      border-top: 1px solid rgba(153, 255, 255, 0.05);
+      min-height: 80px;
+
+      .title {
+        margin: 0;
+        color: #99ffff;
+        font-size: 20px;
+        font-weight: 500;
+        font-family: "Coolvetica";
+        letter-spacing: 2px;
+        text-shadow: 0 0 10px rgba(153, 255, 255, 0.3);
+        opacity: 0.8;
+      }
+
+      .description {
+        font-size: 14px;
+        margin: 0;
+        color: #8d8d8d;
+        font-weight: 300;
+        font-family: "Open Sans", sans-serif;
+        opacity: 0.9;
+        letter-spacing: 1px;
+        line-height: 1.4;
+      }
     }
 
-    .title {
-      margin: 0;
-      color: #fff;
-      font-size: 24px;
-      font-weight: 500;
-      line-height: 24px;
-    }
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(153, 255, 255, 0.05),
+        0 0 30px rgba(153, 255, 255, 0.03);
+      border-color: rgba(153, 255, 255, 0.2);
+      background: rgba(20, 20, 20, 0.95);
 
-    .description {
-      font-size: 14px;
-      margin-bottom: 5px;
-      color: #fff;
-      font-weight: 700;
-    }
+      .portfolio-gif {
+        img {
+          transform: scale(1.02);
+          filter: brightness(1);
+        }
+      }
 
-    .btn {
-      margin-top: 30px;
-      margin-bottom: 10px;
-      padding: 0 23px;
-      height: 40px;
-      line-height: 34px;
-      border: 2px solid #99ffff;
-      border-radius: 4px;
-      font-size: 14px;
-      color: #fff;
-      background: transparent;
-      text-transform: uppercase;
-      font-weight: 700;
-      transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-      cursor: pointer;
-    }
+      .title {
+        color: #fff;
+        text-shadow: 0 0 15px rgba(153, 255, 255, 0.4);
+      }
 
-    btn:hover {
-      transform: translatYe(-3px);
-      background: #99ffff;
-    }
+      .description {
+        opacity: 0.9;
+      }
 
-    &:after {
-      content: "";
-      background: linear-gradient(180deg, #99ffff, #000);
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 2;
-      transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-      opacity: 0;
-    }
+      .content {
+        background: linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 0.75),
+          rgba(0, 0, 0, 0.85)
+        );
 
-    &:hover:after {
-      opacity: 0.85;
-    }
+        .title {
+          color: #99ffff;
+          opacity: 1;
+          text-shadow: 0 0 15px rgba(153, 255, 255, 0.5);
+        }
 
-    &:hover .content {
-      bottom: 0;
-      background: transparent;
+        .description {
+          color: #fff;
+          opacity: 0.9;
+        }
+      }
     }
   }
 }
@@ -129,8 +152,12 @@
     }
 
     .image-box {
-      height: 200px;
+      height: 280px;
       max-width: calc(50% - 10px);
+
+      .portfolio-gif {
+        height: 180px;
+      }
     }
   }
 }
