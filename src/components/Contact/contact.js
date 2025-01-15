@@ -89,7 +89,7 @@ export const Contact = () => {
             </form>
           </div>
         </div>
-        <div className="map-wrap">
+        <div className="gif-wrap">
           <div className="gif-container">
             <img
               src={GifFile}
