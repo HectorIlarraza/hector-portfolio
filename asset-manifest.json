@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/hector-portfolio/static/css/main.80c5272d.css",
-    "main.js": "/hector-portfolio/static/js/main.d7600e00.js",
+    "main.css": "/hector-portfolio/static/css/main.a48dbf1b.css",
+    "main.js": "/hector-portfolio/static/js/main.ec0fe1de.js",
     "static/js/787.4281c5a0.chunk.js": "/hector-portfolio/static/js/787.4281c5a0.chunk.js",
     "static/media/tenor.gif": "/hector-portfolio/static/media/tenor.8d4a1ebebd275a477ab4.gif",
     "static/media/helvetica-neu.ttf": "/hector-portfolio/static/media/helvetica-neu.9dbbc9db793f1cc4fc13.ttf",
@@ -9,12 +9,12 @@
     "static/media/la-belle-aurore-v16-latin-regular.woff2": "/hector-portfolio/static/media/la-belle-aurore-v16-latin-regular.2a89aebf652f3b0aae99.woff2",
     "static/media/CoolveticaRg-Regular.woff": "/hector-portfolio/static/media/CoolveticaRg-Regular.8307bfa187bccdc55f4d.woff",
     "index.html": "/hector-portfolio/index.html",
-    "main.80c5272d.css.map": "/hector-portfolio/static/css/main.80c5272d.css.map",
-    "main.d7600e00.js.map": "/hector-portfolio/static/js/main.d7600e00.js.map",
+    "main.a48dbf1b.css.map": "/hector-portfolio/static/css/main.a48dbf1b.css.map",
+    "main.ec0fe1de.js.map": "/hector-portfolio/static/js/main.ec0fe1de.js.map",
     "787.4281c5a0.chunk.js.map": "/hector-portfolio/static/js/787.4281c5a0.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.80c5272d.css",
-    "static/js/main.d7600e00.js"
+    "static/css/main.a48dbf1b.css",
+    "static/js/main.ec0fe1de.js"
   ]
 }
